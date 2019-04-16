@@ -7,11 +7,20 @@ public final class PageFactory {
 	private WelcomePage welcomePage;
 	private CheckboxesPage checkboxesPage;
 	private DropdownPage dropdownPage;
+	private static PageFactory pageFactory;
 
-	public PageFactory(WebDriver driver) {
+	private PageFactory(WebDriver driver) {
 		welcomePage = new WelcomePage(driver);
 		checkboxesPage = new CheckboxesPage(driver);
 		dropdownPage = new DropdownPage(driver);
+	}
+
+	public static PageFactory getInstance() {
+		return pageFactory;
+	}
+
+	public static void setInstance(WebDriver driver) {
+		pageFactory = new PageFactory(driver);
 	}
 
 	public WelcomePage getWelcomePage() {

@@ -1,36 +1,13 @@
 package com.poc.stepDefinitions;
 
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
 import com.poc.pages.PageFactory;
 
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class CheckboxesSteps {
-	WebDriver driver;
-	PageFactory pageFactory;
 
-	@Before
-	public void setUp() {
-		driver = new FirefoxDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		pageFactory = new PageFactory(driver);
-
-	}
-
-	@Given("^Launch application$")
-	public void launch_application() {
-		driver.get("https://the-internet.herokuapp.com/");
-	}
+	PageFactory pageFactory = PageFactory.getInstance();
 
 	@When("^User should be on Welcome Page$")
 	public void user_should_be_on_Welcome_Page() {
@@ -66,11 +43,6 @@ public class CheckboxesSteps {
 	@Then("^Verify all checkboxes are selected$")
 	public void verify_all_checkboxes_are_selected() throws Throwable {
 		pageFactory.getCheckboxesPage().verifyAllCheckboxStatus(true);
-	}
-
-	@After
-	public void tearDown() {
-		driver.quit();
 	}
 
 }

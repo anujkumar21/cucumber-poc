@@ -91,7 +91,6 @@ public class WelcomePage {
 		System.out.println("Title: " + actualTitle);
 		Assert.assertEquals(actualTitle, EXPECTED_TITLE,
 				"Title should be '" + EXPECTED_TITLE + "', instead of '" + actualTitle + "'.");
-
 	}
 
 }
