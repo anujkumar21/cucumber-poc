@@ -89,4 +89,10 @@ public class DropdownPage {
 
 	}
 
+	public void verifySelectOptioInDropDown(String expectedOpt) {
+		WebElement element = driver.findElement(By.xpath(xpathDropdown));
+		Select select = new Select(element);
+		assertEquals(select.getFirstSelectedOption().getText(), expectedOpt);
+	}
+
 }
