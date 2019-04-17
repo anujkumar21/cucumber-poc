@@ -2,11 +2,14 @@ package com.poc.stepDefinitions;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 import com.poc.pages.PageFactory;
 import com.poc.utils.DriverManager;
 
+import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -31,7 +34,11 @@ public class Hooks {
 	}
 
 	@After
-	public void tearDown() {
+	public void tearDown(Scenario scenario) {
+		if (scenario.isFailed()) {
+			final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+			scenario.embed(screenshot, "image/png"); // stick it in the report
+		}
 		DriverManager.removeWebDriver();
 	}
 
