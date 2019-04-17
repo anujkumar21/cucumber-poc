@@ -14,7 +14,9 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 	glue = {"com.poc.stepDefinitions" }, 
 	monochrome = true, 
 	tags = {}, 
-	plugin = { "pretty", "html:target/cucumber"})
+	plugin = { "pretty", 
+			"html:target/cucumber", 
+			"com.cucumber.listener.ExtentCucumberFormatter:output/report.html" })
 
 //@formatter:on
 public class MainRunner extends AbstractTestNGCucumberTests {
