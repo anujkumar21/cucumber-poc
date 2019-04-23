@@ -1,5 +1,6 @@
 package com.poc.utils;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Services {
+	Logger logger = Logger.getLogger(getClass().getName());
 
 	WebDriver driver = null;
 
@@ -48,8 +50,10 @@ public class Services {
 	public boolean isElementPresent(String xpath) {
 		try {
 			driver.findElement(By.xpath(xpath));
+			logger.info("# Element is present by xpath: " + xpath);
 			return true;
 		} catch (NoSuchElementException ex) {
+			logger.info("# Element is not present by xpath: " + xpath);
 			return false;
 		}
 	}
@@ -61,17 +65,19 @@ public class Services {
 	 */
 	public void waitForElement(String locator) {
 
-		System.out.println("# Waiting for element by xpath: " + locator);
+		logger.info("# Waiting for element by xpath: " + locator);
 		WebDriverWait wait = new WebDriverWait(driver, 30, 1);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
+		logger.info("# Got element by xpath: " + locator);
 
 	}
 
 	public void waitForElementById(String locator) {
 
-		System.out.println("# Waiting for element by id: " + locator);
+		logger.info("# Waiting for element by id: " + locator);
 		WebDriverWait wait = new WebDriverWait(driver, 30, 1);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.id(locator)));
+		logger.info("# Got element by id: " + locator);
 
 	}
 

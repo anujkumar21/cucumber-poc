@@ -1,5 +1,6 @@
 package com.poc.pages;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,6 +9,8 @@ import org.testng.Assert;
 import com.poc.utils.Services;
 
 public class WelcomePage {
+
+	static Logger logger = Logger.getLogger(WelcomePage.class);
 
 	final static String EXPECTED_HEADING = "Welcome to the-internet";
 	final static String EXPECTED_TITLE = "The Internet";
@@ -20,27 +23,27 @@ public class WelcomePage {
 	String xpathLinkUsingText = "//ul/li/a[text()='**lnkTxt**']"; //////// preferred
 
 	public WelcomePage(WebDriver driver) {
-		System.out.println("WelcomePage - Constructor: " + driver);
+		logger.info("# WelcomePage - Constructor: " + driver);
 		this.driver = driver;
 		this.services = new Services(driver);
 	}
 
 	public void clickOnLinkText(String lnkTxt) {
-		System.out.println("*** Clicking on link: " + lnkTxt);
+		logger.info("# Clicking on link: " + lnkTxt);
 		WebElement linkEle = driver.findElement(By.linkText(lnkTxt)); // Link Text
 		linkEle.click();
 	}
 
 	public void clickOnLinkUsingXpath() {
-		System.out.println("*** Clicking on Link using XPATH ");
+		logger.info("# Clicking on Link using XPATH ");
 		services.clickOnElement(xpathLink); // Using XPATH
 	}
 
 	public void clickOnLinkUsingXpath(int index) {
-		System.out.println("*** Clicking on Link using XPATH ");
+		logger.info("# Clicking on Link using XPATH ");
 
 		String xpath = xpathLinkUsingIndex.replace("**index**", index + "");
-		System.out.println("Xpath buy Index: " + xpath);
+		logger.info("# Xpath buy Index: " + xpath);
 		services.clickOnElement(xpath); // Using XPATH index
 	}
 
@@ -50,25 +53,21 @@ public class WelcomePage {
 	 * @param lnkTxt visible link text.
 	 */
 	public void clickOnLinkUsingXpath(String lnkTxt) {
-		System.out.println("*** Clicking on Link using XPATH ");
-
+		logger.info("# Clicking on Link using XPATH ");
 		String xpath1 = xpathLinkUsingText.replace("**lnkTxt**", lnkTxt);
-		System.out.println("Xpath buy Link Text: " + xpath1);
-
+		logger.info("# Xpath buy Link Text: " + xpath1);
 		services.clickOnElement(xpath1); // Using XPATH
 	}
 
 	public void clickOnLinkUsingXpathAttribute(String lnkTxt) {
-		System.out.println("*** Clicking on Link using XPATH & Attribute.");
-
+		logger.info("# Clicking on Link using XPATH & Attribute.");
 		String xpath2 = xpathLinkUsingAttribute.replace("**lnkTxt**", lnkTxt);
-		System.out.println("Xpath by Link Text: " + xpath2);
-
+		logger.info("# Xpath by Link Text: " + xpath2);
 		services.clickOnElement(xpath2); // Using XPATH
 	}
 
 	public void clickOnPartialLinkText(String lnkTxt) {
-		System.out.println("*** Clicking on Partial Link: " + lnkTxt);
+		logger.info("# Clicking on Partial Link: " + lnkTxt);
 		WebElement linkEle = driver.findElement(By.partialLinkText(lnkTxt)); // Partial Link Text
 		linkEle.click();
 	}
@@ -86,9 +85,9 @@ public class WelcomePage {
 	}
 
 	public void verifyWelcomePageTitle() {
-		System.out.println("WelcomePage - Driver: " + driver);
+
 		String actualTitle = driver.getTitle();
-		System.out.println("Title: " + actualTitle);
+		logger.info("# Title: " + actualTitle);
 		Assert.assertEquals(actualTitle, EXPECTED_TITLE,
 				"Title should be '" + EXPECTED_TITLE + "', instead of '" + actualTitle + "'.");
 	}

@@ -6,6 +6,7 @@ import static org.testng.Assert.assertTrue;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,6 +14,7 @@ import org.openqa.selenium.WebElement;
 import com.poc.utils.Services;
 
 public class CheckboxesPage {
+	static Logger logger = Logger.getLogger(CheckboxesPage.class.getName());
 
 	final static String TXT_HEADING = "Checkboxes";
 	static String xpathHeading = "//div[@class='example']/h3";
@@ -23,12 +25,13 @@ public class CheckboxesPage {
 	String xpathCheckboxIndex = "//input[**index**]";
 
 	public CheckboxesPage(WebDriver driver) {
+		logger.info("# CheckboxesPage - Constructor: " + driver);
 		this.driver = driver;
 		services = new Services(driver);
 	}
 
 	private void changeStatus(WebElement ele, boolean toSelect) {
-
+		
 		if (toSelect) {
 			if (!ele.isSelected())
 				ele.click();

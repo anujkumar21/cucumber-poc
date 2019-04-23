@@ -1,0 +1,14 @@
+2019-04-23 18:07:16 INFO  PageFactory:16 - # PageFactory constructor - FirefoxDriver: firefox on WINDOWS (dca9b823-1695-46eb-86f9-c30a171f4b6d)
+2019-04-23 18:07:16 INFO  WelcomePage:26 - # WelcomePage - Constructor: FirefoxDriver: firefox on WINDOWS (dca9b823-1695-46eb-86f9-c30a171f4b6d)
+2019-04-23 18:07:16 INFO  CheckboxesPage:28 - # CheckboxesPage - Constructor: FirefoxDriver: firefox on WINDOWS (dca9b823-1695-46eb-86f9-c30a171f4b6d)
+2019-04-23 18:07:20 INFO  WelcomePage:90 - # Title: The Internet
+2019-04-23 18:07:20 INFO  WelcomePage:32 - # Clicking on link: Dropdown
+2019-04-23 18:07:21 INFO  Services:68 - # Waiting for element by xpath: //div[@class='example']//h3
+2019-04-23 18:07:21 INFO  Services:71 - # Got element by xpath: //div[@class='example']//h3
+2019-04-23 18:07:28 INFO  PageFactory:16 - # PageFactory constructor - FirefoxDriver: firefox on WINDOWS (f37357d5-20dc-4cc1-a532-a655fc426829)
+2019-04-23 18:07:28 INFO  WelcomePage:26 - # WelcomePage - Constructor: FirefoxDriver: firefox on WINDOWS (f37357d5-20dc-4cc1-a532-a655fc426829)
+2019-04-23 18:07:28 INFO  CheckboxesPage:28 - # CheckboxesPage - Constructor: FirefoxDriver: firefox on WINDOWS (f37357d5-20dc-4cc1-a532-a655fc426829)
+2019-04-23 18:07:35 INFO  WelcomePage:90 - # Title: The Internet
+2019-04-23 18:07:35 INFO  WelcomePage:32 - # Clicking on link: Dropdown
+2019-04-23 18:07:36 INFO  Services:68 - # Waiting for element by xpath: //div[@class='example']//h3
+2019-04-23 18:07:36 INFO  Services:71 - # Got element by xpath: //div[@class='example']//h3
