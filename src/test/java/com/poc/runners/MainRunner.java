@@ -10,7 +10,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @RunWith(Cucumber.class)
 @CucumberOptions
-	(features = { "src\\test\\resources" }, 
+	(features = { "src/test/resources" },
 	glue = {"com.poc.stepDefinitions" }, 
 	monochrome = true, 
 	tags = {}, 

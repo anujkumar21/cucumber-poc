@@ -11,13 +11,18 @@
 
 	<name>cucumber-poc</name>
 
+	<properties>
+		<chromedriver>${project.basedir}/drivers/chromedriver</chromedriver>
+		<firefoxdriver>${project.basedir}/drivers/geckodriver</firefoxdriver>
+	</properties>
+
 	<dependencies>
 
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>2.53.1</version>
+			<version>3.141.59</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
@@ -157,17 +162,21 @@
 						<target>1.8</target>
 						<fork>true</fork>
 						<!--<executable>C:\Program Files\Java\jdk1.8.0_121\bin\javac.exe</executable> -->
-						<executable>${env.JAVA_HOME}\bin\javac.exe</executable>
+						<!--<executable>${env.JAVA_HOME}\bin\javac.exe</executable>-->
 					</configuration>
 				</plugin>
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>2.22.1</version>
 					<configuration>
+						<systemPropertyVariables>
+							<webdriver.chrome.driver>${chromedriver}</webdriver.chrome.driver>
+							<webdriver.gecko.driver>${firefoxdriver}</webdriver.gecko.driver>
+						</systemPropertyVariables>
 						<suiteXmlFiles>
 							<suiteXmlFile>testng.xml</suiteXmlFile>
 						</suiteXmlFiles>
-						<testErrorIgnore>false</testErrorIgnore>
+						<!--<testErrorIgnore>false</testErrorIgnore>-->
 						<testFailureIgnore>false</testFailureIgnore>
 					</configuration>
 				</plugin>
