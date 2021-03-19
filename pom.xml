@@ -14,7 +14,7 @@
     <properties>
         <chromedriver>${project.basedir}/drivers/chromedriver</chromedriver>
         <firefoxdriver>${project.basedir}/drivers/geckodriver</firefoxdriver>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <cucumber.version>6.10.1</cucumber.version>
         <selenium.version>3.141.59</selenium.version>
         <log4j.version>2.14.0</log4j.version>
